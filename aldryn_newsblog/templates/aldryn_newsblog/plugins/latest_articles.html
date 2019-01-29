@@ -1,0 +1,33 @@
+{% load i18n %}
+
+<section class="content-section" id="portfolio">
+    
+        <div class="container">
+        
+        
+            
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">آموزش</h3>
+                <h2 class="mb-5">آخرین آموزش ها</h2>
+            </div>
+        
+        
+            <div class="row no-gutters"> 
+        
+                    {% for article in article_list %}
+                    {% include "aldryn_newsblog/includes/latest_article_article.html" with namespace=instance.app_config.namespace %}
+                    {% empty %}
+                    <p>{% trans "No items available" %}</p>
+                    {% endfor %}
+                
+            </div>
+        
+        
+        
+      
+        
+        </div>
+        
+</section>
+        
+  

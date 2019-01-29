@@ -1,0 +1,46 @@
+{% load i18n sekizai_tags  staticfiles thumbnail cms_tags apphooks_config_tags comments threadedcomments_tags   %}
+
+
+
+  
+
+        <div class="col-lg-6">
+            <a class="portfolio-item" href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>{% render_model article "title" %}</h2>
+                  <div class="lead mb-0">
+                      
+                    
+                    {% filter truncatechars:150  %}
+                    
+                    {% render_model article "lead_in" %} 
+                
+                    {% endfilter %}
+                </div>
+
+                    {% get_comment_list for article as comment_list %}  
+                  <div class="comments_length">
+                      <p>{{ comment_list|length }} نظر</p>
+                  </div>
+          
+                  
+
+                  <time datetime="{{ article.publishing_date }}">{{ article.publishing_date|date }}</time>
+
+
+
+                </span>
+                
+                
+              </span>
+              <img class="latest_img img-fluid" src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}" alt="">
+            </a>
+        </div>
+         
+
+
+    
+
+    
+

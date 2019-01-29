@@ -1,0 +1,78 @@
+
+{% extends "base.html" %} {% load cms_tags menu_tags sekizai_tags staticfiles %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+
+{% block header %} 
+
+<header class="sechead d-flex">
+
+  </header>
+
+{% endblock header %}
+
+
+
+{% block content %}
+<section class="callout">
+    <div class="container text-center">
+     
+    </div>
+  </section>
+<section id = 'contact' class="call-to-action text-white text-center">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h2 class="mb-4">با ما در ارتباط باشید </h2>
+      </div>
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <form  id="target" action="" method="POST">
+          {% csrf_token %}
+          <div class="form-row slideanim">
+            <div class="col-lg-6 col-md-6 mb-2 mb-md-0 form-group">
+              <input
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="اسم شما"
+                type="text"
+                required
+              />
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+              <input
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="ایمیل شما برای دریافت پاسخ"
+                type="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-9 col-md-9 form-group">
+              <textarea
+                class="form-control"
+                id="comments"
+                name="comments"
+                placeholder="پیغام شما ..."
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="col-lg-3 colmd-3 form-group">
+              <button  type="submit" class="btn btn-block btn-lg btn-light">
+                ارسال
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="snackbar">Your message sents successfully</div>
+
+{% endblock content %}
