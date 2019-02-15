@@ -1,0 +1,25 @@
+.img-circle {
+    border-radius: 50%;
+}
+
+
+.logo {
+    width: 50px;
+    border-radius: 30%;
+    opacity: 0.5;
+    padding-right: 5px;
+}
+
+
+.hr-color {
+    width: 60px;
+    border-color: #0bf;
+}
+
+.footerelements {
+    font-size: 20px;
+}
+
+.bg-navy {
+    background-color: #1b2331;
+}

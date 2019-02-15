@@ -1,211 +1,271 @@
-{% load i18n cms_tags menu_tags sekizai_tags staticfiles apphooks_config_tags%} 
+{% load i18n cms_tags menu_tags sekizai_tags staticfiles apphooks_config_tags%}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
-  <head>
-    <title>
-      {% block title %}باهم بپزیم{% endblock title %}
-    </title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    {% block meta %}
-    <meta
-      name="description"
-      content="{% page_attribute 'meta_description' %}"
-    />
-    {% endblock meta %}
-    <meta name="author" content="" />
-    <!-- Bootstrap Core CSS -->
-    <link
-      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
-      rel="stylesheet"
-    />
 
-    <!-- Custom Fonts -->
-    <link
-      href="{% static 'vendor/fontawesome-free/css/all.min.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}"
-      rel="stylesheet"
-    />
+<head>
+  <title>
+    {% block title %}د‍‍پارتمان اینترنت اشیا{% endblock title %}
+  </title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  {% block meta %}
+  <meta name="description" content="{% page_attribute 'meta_description' %}" />
+  {% endblock meta %}
+  <meta name="author" content="" />
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet" />
+  <!-- Custom Fonts -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+    rel="stylesheet" type="text/css" />
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" />
 
-    {% render_block "css" %}
-  </head>
+  <!-- Custom CSS -->
+  <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/karaco.css' %}" rel="stylesheet" />
 
-  <body dir="rtl" id="page-top">
-    {% cms_toolbar %}
+  {% render_block "css" %}
+</head>
 
-    <a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i> </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="ml-auto sidebar-brand ">
-          <a class="brand " href="#page-top">باهم بپزیم</a>
-        </li>
-        <li class="sidebar-nav-item">
-          {% if user.is_authenticated %}
-          <a class="" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج" class="fas fa-user-times userlogin"></i>
-          <span class="mr-3">    {{ user.first_name }} {{ user.last_name }}       </span> </a>
-            {% else %}
-          <a class="" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام" class="far fa-user userlogin"></i>
-            <span class="mr-3">    ورود یا ثبت نام      </span>
-          </a>
-            {% endif %}
-        </li>
-        <li class="sidebar-nav-item">
-          <a  href="/">خانه</a>
-        </li>
+<body dir="rtl" id="page-top">
+  {% cms_toolbar %}
 
-        <li class="sidebar-nav-item">
-          <a  href="/about/#about">درباره ی ما</a>
-        </li>
+  <a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i> </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="ml-auto sidebar-brand ">
+        <a class="brand " href="#page-top">د‍‍پارتمان اینترنت اشیا</a>
+      </li>
+      <li class="sidebar-nav-item">
+        {% if user.is_authenticated %}
+        <a class="" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج"
+            class="fas fa-user-times userlogin"></i>
+          <span class="mr-3"> {{ user.first_name }} {{ user.last_name }} </span> </a>
+        {% else %}
+        <a class="" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام"
+            class="far fa-user userlogin"></i>
+          <span class="mr-3"> ورود یا ثبت نام </span>
+        </a>
+        {% endif %}
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/">خانه</a>
+      </li>
 
-        <li class="sidebar-nav-item">
-          <a  href="/learning/">آموزش</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a  href="/about/#contact">ارتباط با ما</a>
-        </li>
-        
-        <li class=" text-white sidebar-nav-item dropdown  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"> 
-         <a>
-          <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle"   > </i>
-                  دسته بندی موضوعی
+      <li class="sidebar-nav-item">
+        <a href="/about/#about">درباره ی ما</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a href="/learning/">آموزش</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/about/#contact">ارتباط با ما</a>
+      </li>
+
+      <li class=" text-white sidebar-nav-item dropdown  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">
+        <a>
+          <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle"> </i>
+          دسته بندی موضوعی
           <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
-            <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item " type="button">غذای انگشتی</button>
-            <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button" >غذای سریع</button>
-            <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button" class="dropdown-item " >غذای بدون گوشت</button>
-          
+            <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item "
+              type="button">غذای انگشتی</button>
+            <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button">غذای
+              سریع</button>
+            <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button"
+              class="dropdown-item ">غذای بدون گوشت</button>
+
           </div>
         </a>
-        </li>
-        <li class="sidebar-nav-item">
-       <i id="searchsideicon" class=" fas fa-search text-white"></i>
+      </li>
+      <li class="sidebar-nav-item">
+        <i id="searchsideicon" class=" fas fa-search text-white"></i>
 
-          {% static_placeholder "searchside" %}
+        {% static_placeholder "searchside" %}
 
-       
-        </li>
-      </ul>
-    </nav>
-   
-    
-    <nav id="topbar" class="navbar navbar-expand-md navbar-light bg-trans ">
-      <a data-toggle='tooltip' data-placement="bottom" title="خوش آمدید" class="navbar-brand">باهم بپزیم</a>
-      <!-- <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+
+      </li>
+    </ul>
+  </nav>
+
+
+  <nav id="topbar" class="navbar navbar-expand-md navbar-light bg-trans ">
+    <a data-toggle='tooltip' data-placement="bottom" title="خوش آمدید" class="navbar-brand">باهم بپزیم</a>
+    <!-- <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button> -->
 
-          
-      <div class="navbar-collapse collapse" id="navbarsExample04">
-          {% if user.is_authenticated %}
-          <a class="mr-5" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج" class="fas fa-user-times userlogin"></i></a>
-        <p class="pr-3 pt-3">  {{ user.first_name }} {{ user.last_name }} </p> 
-            {% else %}
-          <a class="mr-5" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام" class="far fa-user userlogin"></i></a>
-            {% endif %}
-        {% static_placeholder "search" %}
-        <span  class="ml-5 mr-auto"><i data-toggle='tooltip' data-placement="bottom" title="جستجو در آموزش ها" id="searchicon" class=" fas fa-search"></i></span>
-     
-          <span class="dropdown ">
-            دسته بندی موضوعی
-              <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" > </i>
-              <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
-                <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item " type="button">غذای انگشتی</button>
-                <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button" >غذای سریع</button>
-                <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button" class="dropdown-item " >غذای بدون گوشت</button>
-              
-              </div>
-            </span>
-        <ul class="navbar-nav ">
-    
-          {% show_menu 0 100 100 100 %}
-        </ul>
-      </div>
-      
-    </nav>
 
-    {% block header %} {% endblock header %}
-    {% block content %} {% endblock content %}
+    <div class="navbar-collapse collapse" id="navbarsExample04">
+      {% if user.is_authenticated %}
+      <a class="mr-5" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج"
+          class="fas fa-user-times userlogin"></i></a>
+      <p class="pr-3 pt-3"> {{ user.first_name }} {{ user.last_name }} </p>
+      {% else %}
+      <a class="mr-5" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام"
+          class="far fa-user userlogin"></i></a>
+      {% endif %}
+      {% static_placeholder "search" %}
+      <span class="ml-5 mr-auto"><i data-toggle='tooltip' data-placement="bottom" title="جستجو در آموزش ها"
+          id="searchicon" class=" fas fa-search"></i></span>
 
-    <footer class="footer text-center">
-      
-        <div class="row">
-            <div class="col-lg-3">
-                <p>
-                  یک اهداف کوتاه و خدمات کوچک سایت 
-                </p>
-              </div>
-          <div class="col-lg-3 use-link">
-              <p> لینک های مفید </p>
-              <ul class="navbar-nav">
-                <li>
-                  <a href="">ارتباط با ما</a>
-                </li>
-                <li>
-                  <a href="">محصولات ارگانیک</a>
-                </li>
-                <li>
-                  <a href="">Privacy & Policy</a> 
-                </li>
-              </ul>
-          </div>
-
-          <div class="col-lg-6 mt-3">
-              <ul class="list-inline mb-5">
-                  <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white " target="_blank" href="https://www.instagram.com/baham_bepazim/">
-                      <i class="icon-social-instagram"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white "target="_blank"  href="https://t.me/fingerfoodhero">
-                        <i class="fab fa-telegram"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-2" target="_blank" href="https://t.me/fingerfh">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                  </li>
-                </ul>
-          </div>
+      <span class="dropdown ">
+        دسته بندی موضوعی
+        <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"> </i>
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
+          <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item " type="button">غذای
+            انگشتی</button>
+          <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button">غذای
+            سریع</button>
+          <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button" class="dropdown-item ">غذای
+            بدون گوشت</button>
 
         </div>
+      </span>
+      <ul class="navbar-nav ">
+
+        {% show_menu 0 100 100 100 %}
+      </ul>
+    </div>
+
+  </nav>
+
+  {% block header %} {% endblock header %}
+  {% block content %} {% endblock content %}
+
+  <footer>
+    <div class="container text-center text-md-right mt-5">
+      <div class="fontfooter rtl row mt-3">
+        <div class="col-md-4 col-lg-3 col-xl-4">
+          <p class="farsi" style="font-size: 22px ; text-align: justify">
+            <img class="logo" src="../../../../../../../../static/img/logo3.jpg" alt="failed">
+            دپارتمان اینترنت اشیا مرکز رشد واحدهای فناور پیشرفته مخابرات جهاد دانشگاهی خواجه نصیر، مرکزی برای رشد و
+            سطح دانش اینترنت اشیا کشور است. این مرکز می‌کوشد تا با ترویج این فناوری نوپای جهانی در ایران
+            نیازهای علاقه‌مندان این حوزه را برطرف کند و متخصصان ملی را پرورش دهد.
+          </p>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3 mb-4">
+            <h6>ارتباط با ما</h6>
+            <hr class="hr-color mb-4 mt-0 d-inline-block mx-auto">
+            <div class="footerelements">
+              <address>
+                <p>
+                  <font style="font-weight: bold">
+                    نشانی:
+                  </font>
+                  </br>
+                  ساختمان ۲ مرکز رشد خواجه نصیر
+                </p>
+                <p>
+                  <font style="font-weight: bold">
+                    تلفن:
+                  </font>
+                  ۰۹۳۶۸۸۰۹۰۶۶
+                </p>
+                <p>
+                  <font style="font-weight: bold">
+                    ایمیل:
+                  </font>
+                  <font style="font-size: 16px">
+                    catuisite@gmail.com
+                  </font>
+                </p>
+              </address>
+            </div>
+          </div>
+        <div class="col-md-2 col-lg-2 col-xl-3  mb-4">
+          <h6>دسترسی سریع</h6>
+          <hr class="hr-color mb-4 mt-0 d-inline-block mx-auto">
+          <div class="footerelements">
+            <p><a href="/">صفحه اصلی</a></p>
+            <p><a href="/accounts/login/">ورود/ ثبت نام</a></p>
+            <p><a href="">آخرین اخبار</a></p>
+            <p><a href="">مطالب پربازدید</a></p>
+          </div>
+        </div>
         
-        <p dir="ltr" class="text-muted small mb-0 mt-3">
-            &copy; All Rights Reserved 2019 - Designed by Karaco
+      </div>
+    </div>
+    <div class="row bg-navy2">
+      <div class="col-lg-12">
+        <div class="container text-center mt-3 mb-3">
+          <a href=""><i class="fa fa-users" aria-hidden="true"></i> Term of Use </a>
+          <a href=""><i class="fa fa-info" aria-hidden="true"></i> Privacy and Policy </a>
+          <p>All content copyright IOT Department &copy; 2018 • All rights reserved.
+            Designed by <a class="copyright" href="#"> Karaco </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!--  
+    <div class="row">
+      <div class="col-lg-3">
+        <p style="text-align: justify">
+          <img class="logo" src="../../../../../../../../static/img/logo3.jpg" alt="failed">
+          دپارتمان اینترنت اشیا مرکز رشد واحدهای فناور پیشرفته مخابرات جهاد دانشگاهی خواجه نصیر، مرکزی برای رشد و
+          سطح دانش اینترنت اشیا کشور است. این مرکز می‌کوشد تا با ترویج این فناوری نوپای جهانی در ایران
+          نیازهای علاقه‌مندان این حوزه را برطرف کند و متخصصان ملی را پرورش دهد.
         </p>
-      
-    </footer>
+      </div>
+      <div class="col-lg-3 use-link">
+        <p> لینک های مفید </p>
+        <ul class="navbar-nav">
+          <li>
+            <a href="">ارتباط با ما</a>
+          </li>
+          <li>
+            <a href="">محصولات ارگانیک</a>
+          </li>
+          <li>
+            <a href="">Privacy & Policy</a>
+          </li>
+        </ul>
+      </div>
 
-    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+      <div class="col-lg-6 mt-3">
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white " target="_blank"
+              href="https://www.instagram.com/baham_bepazim/">
+              <i class="icon-social-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white " target="_blank" href="https://t.me/fingerfoodhero">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-2" target="_blank" href="https://t.me/fingerfh">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    </div>
+-->
 
-    <!-- Plugin JavaScript -->
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  </footer>
 
-    <!-- Custom scripts for this template -->
-    <script src="{% static 'js/stylish-portfolio.js' %}"></script>
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-    {% render_block "js" %}
-  </body>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/stylish-portfolio.js' %}"></script>
+
+  {% render_block "js" %}
+</body>
+
 </html>

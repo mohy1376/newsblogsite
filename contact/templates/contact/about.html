@@ -1,13 +1,12 @@
-
 {% extends "base.html" %} {% load cms_tags menu_tags sekizai_tags staticfiles %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 
-{% block header %} 
+{% block header %}
 
 <header class="sechead d-flex">
 
-  </header>
+</header>
 
 {% endblock header %}
 
@@ -15,50 +14,119 @@
 
 {% block content %}
 <section class="callout">
-    <div class="container text-center">
-     
-    </div>
-  </section>
-  <section id="about" class="bg-orange">
-    <div class="container ">
-        <h1 class="pt-4 pb-5 text-center"> درباره ی ما</h1>
-        <div class="row">
-          
-          <div class="col-lg-12 purpose">
-              <p dir="rtl"><span>امروزه به دلایل متعدد در جامعه ، خانواده ها کمتر به غذای سالم خانگی روی می&#8239;آورند. بخشی از این مسائل و مشکلات عبارتند از:</span></p>
-              <p dir="rtl"><span>&middot;&nbsp; شاغل بودن افراد و در نتیجه نداشتن وقت کافی</span></p>
-              <p dir="rtl"><span>&middot;&nbsp; بی حوصلگی افراد در مقاطع زمانی خاص</span></p>
-              <p dir="rtl"><span>&middot;&nbsp; زمانبر بودن آشپزی در خانه</span></p>
-              <p dir="rtl"><span>&middot;&nbsp; حساسیت و آلرژی احتمالی به بوی غذا، ادویه&#8239;جات و سرخ&#8239;کردنی&#8239;ها</span></p>
-              <p dir="rtl"><span>&middot;&nbsp; افزایش بی&#8239;رویه قیمت انواع مواد غذایی</span></p>
-              <p dir="rtl">&nbsp;</p>
-              <p dir="rtl"><span>گروه آشپزی آسان و سالم برآن شده است تا با ارائه راهکار&#8239;های مفید و جذاب ، ضمن استفاده حداکثری از وقت و لذت بردن از دست&#8239;پخت خود و کاهش هزینه سبد غذایی خانواده، به سلامت خودمان نیز کمک کند.</span></p>
-              <p dir="rtl">&nbsp;</p>
-              <p dir="rtl" style="text-align: center;"><span><strong>آنچه خوبان همه دارند ، ما اینجا داریم ;))</strong></span></p>
-          </div>
+  <div class="container text-center">
 
-        </div>
-    </div>
-  </section>
-  <section id="services" class="bg-light">
-      <div class="container ">
-          <h1 class="pt-4 pb-5 text-center"> خدمات ما</h1>
-          <div class="row">
-            
-            <div class="col-lg-12 services">
-                <p>خدمات ما شامل :</p>
-                <p>&middot;&nbsp;&nbsp; آموزش آشپزی آسان و سریع در دسته&#8239;بندی های مختلف</p>
-                <p>&middot;&nbsp;&nbsp; پاسخ به سوالات و اشکالات شما</p>
-                <p>&middot;&nbsp;&nbsp; برگزاری دوره&#8239;های مقدماتی و پیشرفته ی غیرحضوری</p>
-                <p>&middot;&nbsp;&nbsp; برگزاری دوره های حضوری</p>
-                <p>&nbsp;</p>
-            </div>
-  
-          </div>
+  </div>
+</section>
+<section id="about" class="bg-light">
+  <div class="container ">
+    <h1 class="pt-4 pb-5 text-center"> درباره ی ما</h1>
+    <div class="row">
+
+      <div class="col-lg-12 purpose">
+        <p dir="rtl"><span>
+            ما بخش اینترنت اشیا از دپارتمان فنی و مهندسی مرکز رشد واحدهای فناور پیشرفته مخابرات جهاد دانشگاهی هستیم
+            که در راستای ارتقای سواد و فناوری اینترنت اشیا در کشور فعالیت می‌کنیم.
+          </span></p>
+        <p dir="rtl"><span>
+            برای آشنایی بیشتر بامرکز رشد واحدهای فناور پیشرفته مخابرات جهاد دانشگاهی خواجه نصیر
+            <a href="../../../static/documents/ساختار مرکز رشد.pdf" class="text-dark">
+              اینجا
+            </a>
+            کلیک کنید
+        </p></span>
       </div>
-    </section>
-    
-<section id = 'contact' class="call-to-action text-white text-center">
+
+    </div>
+  </div>
+  
+    <div class="row">
+			<div class="text-center col-md-4 col-sm-12 mt-5">
+				<a class="text-center" href="#demo1" data-toggle="collapse">
+					<img src="../../../static/img/mohy.jpg" class="img-circle person" alt="Mohy" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>محمد فهیم</strong></p>
+				<div id="demo1" class="collapse  marge">
+					<p>هم‌بنیان‌گذار و توسعه‌دهنده</p>
+					<p> مهندسی برق - مخابرات</p>
+					<p> دانشگاه علم و صنعت</p>
+				</div>
+			</div>
+			<div class="text-center col-md-4 col-sm-12 mt-5">
+
+				<a class="text-center" href="#demo2" data-toggle="collapse">
+					<img src="../../../static/img/momza.jpg" class="img-circle person" alt="Momza" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>محمد ملک زاهدی</strong></p>
+				<div id="demo2" class="collapse  marge">
+					<p>هم‌بنیان‌گذار و توسعه‌دهنده</p>
+					<p> مهندسی مکانیک</p>
+					<p>دانشگاه تهران</p>
+				</div>
+			</div>
+			<div class="text-center col-md-4 col-sm-12 mt-5">
+				<a class="text-center" href="#demo3" data-toggle="collapse">
+					<img src="../../../static/img/diako.jpg" class="img-circle person" alt="diako" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>دیاکو شاکری</strong></p>
+				<div id="demo3" class="collapse  marge">
+					<p>توسعه‌دهنده</p>
+					<p> مهندس برق - مخابرات</p>
+					<p>دانشگاه علم و صنعت</p>
+				</div>
+			</div>
+		</div>
+		</br>
+		</br>
+		<div class="row ">
+			<div class=" col-xl-3 col-md-6  mt-5">
+				<a href="#demo4" data-toggle="collapse">
+					<img src="../../../static/img/ahmadreza.jpg" class="img-circle person" alt="Mohy" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>احمدرضا فراهانی</strong></p>
+				<div id="demo4" class="collapse  marge">
+					<p>نویسنده</p>
+					<p> مهندسی برق - مخابرات</p>
+					<p> دانشگاه علم و صنعت</p>
+				</div>
+			</div>
+			<div class=" col-xl-3 col-md-6  mt-5">
+				<a href="#demo5" data-toggle="collapse">
+					<img src="../../../static/img/shahrzad.jpg" class="img-circle person" alt="Mohy" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>شهرزاد باغستانی</strong></p>
+				<div id="demo5" class="collapse  marge">
+					<p>نویسنده</p>
+					<p> مهندسی برق - مخابرات</p>
+					<p> دانشگاه علم و صنعت</p>
+				</div>
+			</div>
+			<div class=" col-xl-3 col-md-6  mt-5">
+				<a href="#demo6" data-toggle="collapse">
+					<img src="../../../static/img/alireza.jpg" class="img-circle person" alt="Mohy" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>علیرضا خلج</strong></p>
+				<div id="demo6" class="collapse  marge">
+					<p>نویسنده</p>
+					<p> مهندسی برق - مخابرات</p>
+					<p> دانشگاه علم و صنعت</p>
+				</div>
+			</div>
+			<div class=" col-xl-3 col-md-6  mt-5">
+				<a href="#demo7" data-toggle="collapse">
+					<img src="../../../static/img/amin.jpg" class="img-circle person" alt="Mohy" width="200" height="200">
+				</a>
+				<p class="text-center"><strong>امین رزاقی</strong></p>
+				<div id="demo7" class="collapse  marge">
+					<p>نویسنده</p>
+					<p> مهندسی برق - مخابرات</p>
+					<p> دانشگاه امیرکبیر</p>
+				</div>
+			</div>
+
+</section>
+
+<section id='contact' class="call-to-action text-white text-center">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -66,48 +134,25 @@
         <h2 class="mb-4">با ما در ارتباط باشید </h2>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form  id="target" action="" method="POST">
+        <form id="target" action="" method="POST">
           {% csrf_token %}
           <div class="form-row slideanim">
             <div class="col-lg-6 col-md-6 mb-2 mb-md-0 form-group">
-              <input
-                class="form-control"
-                id="name"
-                name="name"
-                placeholder="اسم شما"
-                type="text"
-                {% if user.is_authenticated %}
-                value = " {{user.username}}"
-                {% endif %}
-                required
-              />
+              <input class="form-control" id="name" name="name" placeholder="اسم شما" type="text"
+                {% if user.is_authenticated %} value=" {{user.username}}" {% endif %} required />
             </div>
             <div class="col-lg-6 col-md-6 form-group">
-              <input
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="ایمیل شما برای دریافت پاسخ"
-                type="email"
-                {% if user.is_authenticated %}
-                value = " {{user.email}}"
-                {% endif %}
-                required
-              />
+              <input class="form-control" id="email" name="email" placeholder="ایمیل شما برای دریافت پاسخ" type="email"
+                {% if user.is_authenticated %} value=" {{user.email}}" {% endif %} required />
             </div>
           </div>
           <div class="form-row">
             <div class="col-lg-9 col-md-9 form-group">
-              <textarea
-                class="form-control"
-                id="comments"
-                name="comments"
-                placeholder="پیغام شما ..."
-                rows="5"
-              ></textarea>
+              <textarea class="form-control" id="comments" name="comments" placeholder="پیغام شما ..."
+                rows="5"></textarea>
             </div>
             <div class="col-lg-3 colmd-3 form-group">
-              <button  type="submit" class="btn btn-block btn-lg btn-light">
+              <button type="submit" class="btn btn-block btn-lg btn-light">
                 ارسال
               </button>
             </div>
