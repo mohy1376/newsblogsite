@@ -42,8 +42,8 @@ my-auto showcase-text">
     {% if article.categories.exists %}
     <p class="lead mb-0 tags">
         {% for category in article.categories.all %}
-        <a class="lead mb-0" href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{
-            category.name }}</a>
+        <a class="lead mb-0" href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">
+            {{ category.name }}</a>
         {% if not forloop.last %}, {% endif %}
         {% endfor %}
     </p>
@@ -65,7 +65,7 @@ my-auto showcase-text">
     {# The image is only shown on the detail view by using the condition "and detail_view" #}
     {% if article.featured_image_id and detail_view %}
     <p class="text-center">
-        <img src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}"
+        <img class="featured_image" src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}"
             alt="{{ article.featured_image.alt }}">
     </p>
 
@@ -77,19 +77,22 @@ my-auto showcase-text">
     </h2>
 
     <div class="lead mb-0">{% render_model article "lead_in" %}</div>
-
-
-    <time class="lead mb-5" datetime="{{ article.publishing_date }}">{{ article.publishing_date|date }}</time>
+<div class="article-content">
+    {% render_placeholder article.content language placeholder_language %}
+</div>
+    <time class="lead pt-4 mb-5" datetime="{{ article.publishing_date }}">{{ article.publishing_date|date }}</time>
 
     
    
     {% include "aldryn_newsblog/includes/author.html" with author=article.author %}
+
+    
     <span class="mb-4"></span>
     {% if article.categories.exists %}
-    <p>
+    <p class="lead mb-0 tags">
         {% for category in article.categories.all %}
-        <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{
-            category.name }}</a>
+        <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">
+            {{ category.name }}</a>
         {% if not forloop.last %}, {% endif %}
         {% endfor %}
     </p>
@@ -106,7 +109,6 @@ my-auto showcase-text">
     {% endif %}
 
    
-    {% render_placeholder article.content language placeholder_language %}
    
 
 </article>

@@ -1,7 +1,7 @@
 {% load i18n sekizai_tags  staticfiles thumbnail cms_tags apphooks_config_tags comments threadedcomments_tags %}
 
 <div class="comments_wrapper" id="comments">
-    <h5>Comments : </h5>
+    <h5>نظرات : </h5>
     {% render_comment_list for article %}
 
     <div  id="wrap_write_comment">
@@ -9,11 +9,13 @@
             {% if user.is_authenticated %}
             {% get_comment_form for article as form %}
             <div id="form-comment">
-                    <h6>Write your comment below : </h6>
+                    <h6>نظر خود را بنویسید : </h6>
             <form id = 'commentTarget' action="{% comment_form_target %}" method="POST">
             {% csrf_token %}
             
             {{ form.comment }}
+            {{ form.captcha }}
+            <i data-toggle='tooltip' data-placement="left" title="تغییر عکس" class="text-white js-captcha-refresh fas fa-redo"></i>
             {{ form.honeypot }}
             {{ form.content_type }}
             {{ form.object_pk }}
@@ -28,10 +30,10 @@
             </form>
         </div>
         {% else %}
-          <p>  لطفا وارد شوید  <a class=" btnLog text-white"><i class="fa fas fa-user "></i></a> برای ثبت نظر </p>
+          <p>  لطفا وارد شوید  <a class=" btnLog" href="/accounts/login"><i class="fa fas fa-user "></i></a> برای ثبت نظر </p>
         {% endif %}
     </div>
 </div>
 
 </div>
-<div id="snackbar">Your comment sents successfully</div>
+<div id="snackbar">پیغام شما با موفقیت ارسال شد</div>

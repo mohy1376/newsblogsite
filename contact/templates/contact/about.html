@@ -19,6 +19,45 @@
      
     </div>
   </section>
+  <section id="about" class="bg-orange">
+    <div class="container ">
+        <h1 class="pt-4 pb-5 text-center"> درباره ی ما</h1>
+        <div class="row">
+          
+          <div class="col-lg-12 purpose">
+              <p dir="rtl"><span>امروزه به دلایل متعدد در جامعه ، خانواده ها کمتر به غذای سالم خانگی روی می&#8239;آورند. بخشی از این مسائل و مشکلات عبارتند از:</span></p>
+              <p dir="rtl"><span>&middot;&nbsp; شاغل بودن افراد و در نتیجه نداشتن وقت کافی</span></p>
+              <p dir="rtl"><span>&middot;&nbsp; بی حوصلگی افراد در مقاطع زمانی خاص</span></p>
+              <p dir="rtl"><span>&middot;&nbsp; زمانبر بودن آشپزی در خانه</span></p>
+              <p dir="rtl"><span>&middot;&nbsp; حساسیت و آلرژی احتمالی به بوی غذا، ادویه&#8239;جات و سرخ&#8239;کردنی&#8239;ها</span></p>
+              <p dir="rtl"><span>&middot;&nbsp; افزایش بی&#8239;رویه قیمت انواع مواد غذایی</span></p>
+              <p dir="rtl">&nbsp;</p>
+              <p dir="rtl"><span>گروه آشپزی آسان و سالم برآن شده است تا با ارائه راهکار&#8239;های مفید و جذاب ، ضمن استفاده حداکثری از وقت و لذت بردن از دست&#8239;پخت خود و کاهش هزینه سبد غذایی خانواده، به سلامت خودمان نیز کمک کند.</span></p>
+              <p dir="rtl">&nbsp;</p>
+              <p dir="rtl" style="text-align: center;"><span><strong>آنچه خوبان همه دارند ، ما اینجا داریم ;))</strong></span></p>
+          </div>
+
+        </div>
+    </div>
+  </section>
+  <section id="services" class="bg-light">
+      <div class="container ">
+          <h1 class="pt-4 pb-5 text-center"> خدمات ما</h1>
+          <div class="row">
+            
+            <div class="col-lg-12 services">
+                <p>خدمات ما شامل :</p>
+                <p>&middot;&nbsp;&nbsp; آموزش آشپزی آسان و سریع در دسته&#8239;بندی های مختلف</p>
+                <p>&middot;&nbsp;&nbsp; پاسخ به سوالات و اشکالات شما</p>
+                <p>&middot;&nbsp;&nbsp; برگزاری دوره&#8239;های مقدماتی و پیشرفته ی غیرحضوری</p>
+                <p>&middot;&nbsp;&nbsp; برگزاری دوره های حضوری</p>
+                <p>&nbsp;</p>
+            </div>
+  
+          </div>
+      </div>
+    </section>
+    
 <section id = 'contact' class="call-to-action text-white text-center">
   <div class="overlay"></div>
   <div class="container">
@@ -37,6 +76,9 @@
                 name="name"
                 placeholder="اسم شما"
                 type="text"
+                {% if user.is_authenticated %}
+                value = " {{user.username}}"
+                {% endif %}
                 required
               />
             </div>
@@ -47,6 +89,9 @@
                 name="email"
                 placeholder="ایمیل شما برای دریافت پاسخ"
                 type="email"
+                {% if user.is_authenticated %}
+                value = " {{user.email}}"
+                {% endif %}
                 required
               />
             </div>

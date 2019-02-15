@@ -1,10 +1,10 @@
-{% load cms_tags menu_tags sekizai_tags staticfiles %} 
+{% load i18n cms_tags menu_tags sekizai_tags staticfiles apphooks_config_tags%} 
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
     <title>
-      {% block title %}This is my new project home page{% endblock title %}
+      {% block title %}باهم بپزیم{% endblock title %}
     </title>
     <meta charset="utf-8" />
     <meta
@@ -52,65 +52,144 @@
     <a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i> </a>
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="ml-auto sidebar-brand">
-          <a class="brand js-scroll-trigger" href="#page-top">باهم بپزیم</a>
+        <li class="ml-auto sidebar-brand ">
+          <a class="brand " href="#page-top">باهم بپزیم</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">خانه</a>
+          {% if user.is_authenticated %}
+          <a class="" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج" class="fas fa-user-times userlogin"></i>
+          <span class="mr-3">    {{ user.first_name }} {{ user.last_name }}       </span> </a>
+            {% else %}
+          <a class="" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام" class="far fa-user userlogin"></i>
+            <span class="mr-3">    ورود یا ثبت نام      </span>
+          </a>
+            {% endif %}
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">درباره ی ما</a>
+          <a  href="/">خانه</a>
+        </li>
+
+        <li class="sidebar-nav-item">
+          <a  href="/about/#about">درباره ی ما</a>
+        </li>
+
+        <li class="sidebar-nav-item">
+          <a  href="/learning/">آموزش</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">خدمات</a>
+          <a  href="/about/#contact">ارتباط با ما</a>
+        </li>
+        
+        <li class=" text-white sidebar-nav-item dropdown  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"> 
+         <a>
+          <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle"   > </i>
+                  دسته بندی موضوعی
+          <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
+            <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item " type="button">غذای انگشتی</button>
+            <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button" >غذای سریع</button>
+            <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button" class="dropdown-item " >غذای بدون گوشت</button>
+          
+          </div>
+        </a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">نمونه کار</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">ارتباط با ما</a>
+       <i id="searchsideicon" class=" fas fa-search text-white"></i>
+
+          {% static_placeholder "searchside" %}
+
+       
         </li>
       </ul>
     </nav>
-    <nav class="navbar navbar-expand-md navbar-light bg-trans ">
-      <a class="navbar-brand" href="">باهم بپزیم</a>
+   
+    
+    <nav id="topbar" class="navbar navbar-expand-md navbar-light bg-trans ">
+      <a data-toggle='tooltip' data-placement="bottom" title="خوش آمدید" class="navbar-brand">باهم بپزیم</a>
       <!-- <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button> -->
 
+          
       <div class="navbar-collapse collapse" id="navbarsExample04">
-        <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+          <a class="mr-5" href="/accounts/logout/"><i data-toggle='tooltip' data-placement="bottom" title="خروج" class="fas fa-user-times userlogin"></i></a>
+        <p class="pr-3 pt-3">  {{ user.first_name }} {{ user.last_name }} </p> 
+            {% else %}
+          <a class="mr-5" href="/accounts/login/"><i data-toggle='tooltip' data-placement="bottom" title="ورود/ثبت نام" class="far fa-user userlogin"></i></a>
+            {% endif %}
+        {% static_placeholder "search" %}
+        <span  class="ml-5 mr-auto"><i data-toggle='tooltip' data-placement="bottom" title="جستجو در آموزش ها" id="searchicon" class=" fas fa-search"></i></span>
+     
+          <span class="dropdown ">
+            دسته بندی موضوعی
+              <i class="mr-1  fas fa-chevron-circle-down  dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" > </i>
+              <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
+                <button onclick="location.href='/fa/learning/category/fingerfood/'" class="dropdown-item " type="button">غذای انگشتی</button>
+                <button onclick="location.href='/fa/learning/category/fastfood/'" class="dropdown-item " type="button" >غذای سریع</button>
+                <button onclick="location.href='/fa/learning/category/nomeatfood/'" type="button" class="dropdown-item " >غذای بدون گوشت</button>
+              
+              </div>
+            </span>
+        <ul class="navbar-nav ">
+    
           {% show_menu 0 100 100 100 %}
         </ul>
       </div>
+      
     </nav>
 
     {% block header %} {% endblock header %}
     {% block content %} {% endblock content %}
 
     <footer class="footer text-center">
-      <div class="container">
-        <ul class="list-inline mb-5">
-          <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white " href="#">
-              <i class="icon-social-instagram"></i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white " href="#">
-                <i class="fab fa-telegram"></i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white mr-2" href="#">
-                <i class="fas fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
-        <p dir="ltr" class="text-muted small mb-0">
-            &copy; All Rights Reserved 2019
+      
+        <div class="row">
+            <div class="col-lg-3">
+                <p>
+                  یک اهداف کوتاه و خدمات کوچک سایت 
+                </p>
+              </div>
+          <div class="col-lg-3 use-link">
+              <p> لینک های مفید </p>
+              <ul class="navbar-nav">
+                <li>
+                  <a href="">ارتباط با ما</a>
+                </li>
+                <li>
+                  <a href="">محصولات ارگانیک</a>
+                </li>
+                <li>
+                  <a href="">Privacy & Policy</a> 
+                </li>
+              </ul>
+          </div>
+
+          <div class="col-lg-6 mt-3">
+              <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white " target="_blank" href="https://www.instagram.com/baham_bepazim/">
+                      <i class="icon-social-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white "target="_blank"  href="https://t.me/fingerfoodhero">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-2" target="_blank" href="https://t.me/fingerfh">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                  </li>
+                </ul>
+          </div>
+
+        </div>
+        
+        <p dir="ltr" class="text-muted small mb-0 mt-3">
+            &copy; All Rights Reserved 2019 - Designed by Karaco
         </p>
-      </div>
+      
     </footer>
 
     <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">

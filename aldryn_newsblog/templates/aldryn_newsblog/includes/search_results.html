@@ -2,10 +2,10 @@
 {% load i18n apphooks_config_tags %}
 
 {% block newsblog_content %}
-    <ul>
-        <h3>{% blocktrans with query=query %}Most recent articles containing "<strong>{{ query }}</strong>"{% endblocktrans %}</h3>
+    <ul class="serachresult">
+        <h3 >{% blocktrans with query=query %}مقالات اخیر که شامل عبارت  "<strong>{{ query }}</strong>" هستند{% endblocktrans %}</h3>
         {% for article in object_list %}
-            <li{% if not article.is_published %} class="unpublished"{% endif %}>
+            <li class="mt-3"   {% if not article.is_published %} class="unpublished"{% endif %}>
                 <a href="{% namespace_url "article-detail" article.slug namespace=view.app_config.namespace default='' %}">
                     <strong>
                         {% for category in article.categories.all %}
@@ -18,9 +18,9 @@
             </li>
         {% empty %}
             {% if query %}
-                <p>{% blocktrans with query=query %}No articles found{% endblocktrans %}</p>
+                <p>{% blocktrans with query=query %}مقاله ای پیدا نشد{% endblocktrans %}</p>
             {% else %}
-                <p>{% trans "Enter a query above" %}</p>
+                <p>{% trans "عبارتی را جهت جستجو انتخاب کنید" %}</p>
             {% endif %}
         {% endfor %}
     </ul>

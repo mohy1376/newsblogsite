@@ -1,0 +1,42 @@
+{% extends "user/base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}صفحه ی ورود - ثبت نام {% endblock title %}
+
+{% block header %}
+<!-- <header class="sechead d-flex">
+
+</header> -->
+{% endblock header %}
+
+{% block content %}
+
+<div class="login text-center">
+
+        <h1>وارد شوید</h1>
+        <form class="loginform" action="" method="POST">
+                {% csrf_token %}
+            
+                <input type="text"   name="username" placeholder="نام کاربری" required>
+                <input type="password"  name="password" placeholder="کلمه عبور" required>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large" value="Log in">وارد شوید</button>
+            <button type="reset" class="btn btn-primary btn-block btn-large" value="Reset">بازنشانی فرم </button>
+            
+        </form>
+        <a  href="/fa/accounts/signup">حساب کاربری ندارید ؟</a> <br><br>
+        <a href="/">بازگشت به صفحه اصلی</a>
+        {% if form.errors %}
+        
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+{% endblock content%}
+

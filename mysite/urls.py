@@ -22,6 +22,7 @@ urlpatterns += i18n_patterns(
     url(r'^', include('contact.urls', namespace='contact')),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^', include('user.urls', namespace='user')),
+    url(r'^captcha/', include('captcha.urls')),
     url(r'^', include('cms.urls')),
 )
 

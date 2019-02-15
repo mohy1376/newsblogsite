@@ -84,11 +84,35 @@
 
 })(jQuery); // End of use strict
 
+// start of js :
 $(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip(); 
   
   $(".navbar-nav li").addClass("nav-item");
   $(".navbar-nav a").addClass("nav-link");
-  
+
+  // var pathname = window.location.pathname; 
+  // if (pathname == '/fa/accounts/login' || pathname == '/fa/accounts/signup'){
+  //   $('footer').css('display','none');
+  //   $('nav').css('display','none');
+  //   $('*').addClass("log_every");
+  //   $('html').addClass("log_html");
+  //   $('body').addClass("log_body");
+  //   $('input').addClass("log_input");
+  // }  
+
+
+  // search
+  $("#searchicon").click(function(){
+$(".searchjs").fadeToggle("slow");
+
+  });
+  // search side
+  $("#searchsideicon").click(function(){
+    $(".searchsidejs").fadeToggle("fast");
+
+      });
+
 //send comment message
 $("#commentTarget").submit(function(event) {
   event.preventDefault();
@@ -117,9 +141,40 @@ $("#commentTarget").submit(function(event) {
       .attr("href");
     return false;
   });
+// captcha
+  $('.js-captcha-refresh').click(function () {
+    $.getJSON("/captcha/refresh/", function (result) {
+        $('.captcha').attr('src', result['image_url']);
+        $('#id_captcha_0').val(result['key'])
+    });
 
 
 });
+
+// for comment's reply
+
+$('.comment_reply_link').click(function(event){
+  var $this = $(this);
+  var comment_id = $this.data('comment-id');
+  $('.cancel_reply').fadeIn();
+  $('.cancel_block').fadeIn();
+  $('#id_parent').val(comment_id);
+  $('#form-comment').insertAfter($this.closest('.comment'));
+
+});
+
+$('.cancel_reply').click(function(){
+
+  $('.cancel_reply').fadeOut();
+  $('.cancel_block').fadeOut();
+  $('#id_comment').val('');
+  $('#id_parent').val('');
+  $('#form-comment').appendTo($('#wrap_write_comment'));
+
+});
+
+}); //end of js
+//toast
 
 function toast() {
   var x = document.getElementById("snackbar");
@@ -130,22 +185,3 @@ function toast() {
 }
 
 
-// for comment's reply
-function show_reply_form(event) {
-  var $this = $(this);
-  var comment_id = $this.data('comment-id');
-
-  $('#id_parent').val(comment_id);
-  $('#form-comment').insertAfter($this.closest('.comment'));
-};
-
-function cancel_reply_form(event) {
-  $('#id_comment').val('');
-  $('#id_parent').val('');
-  $('#form-comment').appendTo($('#wrap_write_comment'));
-}
-
-$.fn.ready(function() {
-  $('.comment_reply_link').click(show_reply_form);
-  $('#cancel_reply').click(cancel_reply_form);
-})

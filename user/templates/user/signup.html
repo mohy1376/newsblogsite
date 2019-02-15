@@ -1,0 +1,105 @@
+{% extends "user/base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}صفحه ی ورود - ثبت نام {% endblock title %}
+
+{% block header %}
+<!-- <header class="sechead d-flex">
+
+</header> -->
+{% endblock header %}
+
+{% block content %}
+
+<div class="login text-center">
+        <h1>ثبت نام کنید</h1>
+        <form  class="loginform" action="" method="POST">
+                {% csrf_token %}
+                
+                <input  type="text" name="username" placeholder="نام کاربری" required>
+                <input  type="password" name="password" placeholder="کلمه عبور" required>
+                <input  type="email" name="email"  placeholder="ایمیل">
+                <input  type="text" name="first_name" placeholder="نام " required>
+                <input  type="text" name="last_name" placeholder="نام خانوادگی" required>
+                {{ form.captcha }}
+                <i data-toggle='tooltip' data-placement="left" title="تغییر عکس" class="text-white js-captcha-refresh fas fa-redo"></i>
+                
+            <button type="submit" class="btn btn-primary btn-block btn-large" value="Submit">ثبت نام کنید</button>
+            <button type="reset" class="btn btn-primary btn-block btn-large" value="Reset">بازنشانی فرم </button>
+            
+        </form>
+        <a href="/">بازگشت به صفحه اصلی</a>
+        {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+</div>
+
+
+
+
+<!-- <section>
+    <div class="text-center">
+        <h1 style="margin-top:30px;">
+            ثبت نام کنید یا وارد شوید
+        </h1>
+    </div>
+    <div class="container  form-structor">
+            <div class="signup">
+                <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+                <form action="" method="POST">
+                
+                <div class="form-holder">
+                    
+                        {% csrf_token %}
+                        
+                           
+                            <input class="input" type="text" name="username" placeholder="username" required>
+                        
+                            <input class="input" type="password" name="password" placeholder="Password" required>
+                      
+                            <input  class="input" type="email" name="email"  placeholder="Email">
+                     
+                       
+                </div>
+                <input  class="submit-btn" type="submit" value=" Submit">
+                <input  class="submit-btn" type="reset" value="Reset">
+            </form>
+                
+                
+            </div>
+            <div class="login slide-up">
+                <div class="center">
+                    <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                    <div class="form-holder">
+                        <input type="text" class="input"  name="username1" placeholder="username" required>
+                        <input type="password" class="input" name="password1" placeholder="Password" required>
+        
+                        
+                    </div>
+                    
+                    <input class="submit-btn" type="submit" value="Log in">
+                    <input class="submit-btn" type="reset" value="Reset">
+                </form>
+                    
+                </div>
+            </div>
+        </div>
+            
+</section> -->
+
+
+
+{% endblock content%}

@@ -1,8 +1,8 @@
 {% load i18n %}
 
 {% if is_paginated %}
-<div class="bg-darkblue ">
-<div class="container ">
+
+<div class="container text-center ">
     <ul class="pagination ">
         {% if page_obj.has_previous %}
             <li>
@@ -47,5 +47,5 @@
         {% endif %}
     </ul>
 </div>
-</div>
+
 {% endif %}

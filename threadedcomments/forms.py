@@ -3,14 +3,14 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django_comments.forms import CommentForm
-
+from captcha.fields import CaptchaField
 from .models import ThreadedComment
 
 
 class ThreadedCommentForm(CommentForm):
     title = forms.CharField(label=_('Title'), required=False, max_length=getattr(settings, 'COMMENTS_TITLE_MAX_LENGTH', 255))
     parent = forms.IntegerField(required=False, widget=forms.HiddenInput)
-
+    captcha = CaptchaField()
     def __init__(self, target_object, parent=None, data=None, initial=None):
         # Using collections.OrderedDict from Python 2.7+
         # This class does not have an insert method, have to replace it.

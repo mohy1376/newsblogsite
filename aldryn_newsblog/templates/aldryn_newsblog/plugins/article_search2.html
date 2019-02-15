@@ -1,0 +1,25 @@
+{% load i18n %}
+
+{# submission of this form will forward to "includes/search_results.html" #}
+{# this form can also be submitted using ajax and "includes/search_results.html" is returned #}
+
+<span class=" mx-auto searchsidejs">
+
+ 
+
+        <form action="{{ query_url }}" method="get">
+           
+                <!-- <label for="search-plugin-{{ instance.pk }}">{% trans "Keyword search" %}</label> -->
+                <input type="text" class="searchform form-control form-control-sm" name="q" id="search-plugin-{{ instance.pk }}"
+                    placeholder="{% trans 'عبارت مورد نظر را جستجو کنید' %}">
+
+                <input type="hidden" name="max_articles" value="{{ instance.max_articles }}">
+          
+           
+
+                <button class="btn btn-block btn-lg btn-light serachsidebtn text-center" type="submit"><i class="fas fa-search"></i></button>
+          
+           
+        </form>
+   
+</span>

@@ -153,6 +153,7 @@ INSTALLED_APPS = (
     'user',
     'threadedcomments',
     'django_comments',
+    'captcha'
 )
 
 LANGUAGES = (

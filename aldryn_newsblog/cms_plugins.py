@@ -93,6 +93,19 @@ class NewsBlogArticleSearchPlugin(NewsBlogPlugin):
             instance.app_config.namespace), default=None)
         return context
 
+@plugin_pool.register_plugin
+class NewsBlogArticleSearch2Plugin(NewsBlogPlugin):
+    render_template = 'aldryn_newsblog/plugins/article_search2.html'
+    name = _('Article2 Search')
+    model = models.NewsBlogArticleSearchPlugin
+    form = forms.NewsBlogArticleSearchPluginForm
+
+    def render(self, context, instance, placeholder):
+        context['instance'] = instance
+        context['query_url'] = default_reverse('{0}:article-search'.format(
+            instance.app_config.namespace), default=None)
+        return context
+
 
 @plugin_pool.register_plugin
 class NewsBlogAuthorsPlugin(NewsBlogPlugin):
